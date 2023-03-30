@@ -1,0 +1,214 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #F0ECEC;
+    margin: 0;
+    }
+
+nav {
+        padding: 0;
+        width: 225px;
+        height: 27px;
+        margin-top: 5px;
+        margin-left: 100px;
+    }
+
+nav ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+nav ul:after {
+    content: "";
+    display: table;
+    clear: both;
+    }
+
+nav a {
+    text-decoration: none;
+    display: block;
+    transition: .2s linear;
+    }
+
+
+.topmenu > li {
+    float: left;
+    position: relative;
+    }
+
+.topmenu > li:first-child {
+        border-left: 0;
+    }
+
+    
+.topmenu > li > a {  
+    padding: 7px 30px;
+    margin: 0;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #FEFDFD;
+    letter-spacing: 2px;
+    border-radius: 5px;
+    }
+
+.topmenu .active:hover {
+        font-weight: bolder;
+        background: #D9D9D9; 
+        border-radius: 10px;
+
+    }
+    
+.topmenu > li > a.active, 
+
+.submenu a:hover {
+        color: #000000;
+    }
+
+.topmenu .fa,
+
+.submenu .fa {
+    margin-left: 5px;
+    color: inherit;
+    }
+
+.submenu {
+    position: absolute;
+    z-index: 5;
+    min-width: 200px;
+    background: white;
+    left: 5%;
+    visibility: hidden;
+    opacity: 0; 
+    transform-origin: 0% 0%;
+    transform: rotateX(-90deg);
+    transition: .3s linear;  
+    border: 1px solid #CBCBCC;
+    border-radius: 7px;
+    }
+
+.submenu li {
+        position: relative;
+    }
+
+.submenu li a {
+    color: #282828;
+    padding: 10px 20px;
+    font-size: 13px;
+    }
+
+.submenu .submenu {
+    position: absolute;
+    left:100%;
+    top: -1px;
+    transition: .3s linear;
+    }
+
+.submenu li a:hover
+    {
+        font-weight: bolder;
+    }
+
+nav li:hover > .submenu {
+    transform: rotateX(0deg);
+    visibility: visible;
+    opacity: 1;
+    }
+
+.name-input {
+    border-radius: 10px;
+    height: 20px;
+    width: 220px;
+    margin-top: 20px;
+    margin-left: 100px;
+    border-radius: 5px;
+    font-size: 25px;
+    background-color:#f6f5f5;
+    border-color: azure;
+} 
+
+ #points {
+    width: 30px;
+    height: 27px;
+    margin-bottom: 100px;
+    position: fixed;
+    right: 50px;
+    text-align: center;
+    line-height: 27px;
+    font-weight: bold;
+}
+
+div .active-mod:hover{
+    background: #D9D9D9; 
+    border-radius: 10px;
+    color: #000000;
+    font-weight: bolder;
+}
+
+.gdocs-input {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    margin-top: 100px;
+
+  }
+  
+  .gdocs-input-toolbar {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 5px;
+
+  }
+  
+  .gdocs-input-toolbar button {
+    margin-right: 10px;
+    padding: 5px;
+    background-color: #f2f2f2;
+    border: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+    
+
+  }
+  
+  .gdocs-input-content {
+    margin-top: 10px;
+    width: 794px;
+    height: 1123px;
+    border: 5px;
+    border-color:#282828;
+    border-bottom: 10px;
+    font-size: 16px;
+    line-height: 1.5;
+    background-color: #ffffff;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    margin-top: 100px;
+    max-height: calc(100vh - 200px);
+    /* overflow: hidden; */
+    overflow-y: auto;
+    word-break:break-all;
+  }
+    
+  .image {
+    background-image: url("image1.jpg");
+    width: 50px;
+    height: 50px;
+    transition: background-image 0.5s ease-in-out;
+    border-radius: 100px;
+    border: 3px solid rgb(255, 0, 0); 
+    box-shadow: 0 0 7px #666; 
+    position: fixed;
+    right: 100px;
+    top: 20px;
+  }
+
+  .image:hover {
+    background-image: url("image2.jpg");
+  }
