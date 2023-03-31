@@ -52,10 +52,9 @@ nav a {
     }
 
 .topmenu .active:hover {
-        font-weight: bolder;
-        background: #D9D9D9; 
-        border-radius: 10px;
-
+    font-weight: bolder;
+    background: #D9D9D9; 
+    border-radius: 10px;
     }
     
 .topmenu > li > a.active, 
@@ -68,7 +67,7 @@ nav a {
 
 .submenu .fa {
     margin-left: 5px;
-    color: inherit;
+    /* color: inherit; */
     }
 
 .submenu {
@@ -130,7 +129,7 @@ nav li:hover > .submenu {
     width: 30px;
     height: 27px;
     margin-bottom: 100px;
-    position: fixed;
+    position: absolute;
     right: 50px;
     text-align: center;
     line-height: 27px;
@@ -171,8 +170,6 @@ div .active-mod:hover{
     border: 5px;
     border-radius: 3px;
     cursor: pointer;
-    
-
   }
   
   .gdocs-input-content {
@@ -204,7 +201,7 @@ div .active-mod:hover{
     border-radius: 100px;
     border: 3px solid rgb(255, 0, 0); 
     box-shadow: 0 0 7px #666; 
-    position: fixed;
+    position: absolute;
     right: 100px;
     top: 20px;
   }
@@ -212,3 +209,360 @@ div .active-mod:hover{
   .image:hover {
     background-image: url("image2.jpg");
   }
+
+.image-file {
+    background: #666;
+    border: #000000;
+    width: 40px;
+    height: 50px;
+    position: absolute;
+    left: 50px;
+    top: 20px;
+  }
+
+.tools-bar {
+    background: #D9D9D9; 
+    border-radius: 10px;
+    width: 1300px;
+    height: 50px;
+    position: absolute;
+    margin: 0;
+    margin-top: 10px;
+    padding: 0;
+    display: inline-block;
+    clear: both;
+    left: 100px
+}
+
+.image-arrow-left {
+    margin-top: 5px;
+    height: 41px;
+    width: 41px;
+    position: absolute;
+    left: 10px;
+}
+
+.image-arrow-right {
+    margin-top: 5px;
+    height: 41px;
+    width: 41px;
+    transform: rotate(180deg);
+    left: 60px;
+    position: absolute;
+
+}
+
+.image-save {
+    margin-top: 5px;
+    height: 41px;
+    width: 41px;
+    position: absolute;
+    left: 110px;
+}
+
+#scale {
+    background-color: #D9D9D9;
+    margin-top: 5px;
+    height: 41px;
+    width: 60px;
+    position: absolute;
+    left: 170px;
+    border-radius: 10px;
+    text-align: center;
+    border: none;
+    font-weight: bold;
+}
+
+#scale:hover {
+    background: #e9e9e9; 
+    border-radius: 10px;
+    color: #000000;
+    font-weight: bolder;
+}
+
+#typeFont {
+    background-color: #D9D9D9;
+    margin-top: 5px;
+    height: 41px;
+    width: 100px;
+    position: absolute;
+    left: 250px;
+    border-radius: 10px;
+}
+
+#typeFont:hover {
+    background: #e9e9e9; 
+    border-radius: 10px;
+    color: #000000;
+    font-weight: bolder;
+}
+
+
+#mySelect {
+    margin-top: 2px;
+    height: 41px;
+    width: 60px;
+    position: absolute;
+    left: 400px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.minus-font {
+    margin-top: 10px;
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    left: 360px;
+}
+
+.plus-font {
+    margin-top: 10px;
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    left: 475px;
+}
+
+.line-one {
+    left: 490px;
+    position: absolute;
+}
+
+.bold {
+    left: 530px;
+    margin-top: 12px;
+    position: absolute;
+}
+
+.italic {
+    left: 560px;
+    margin-top: 12px;
+    position: absolute;
+}
+
+.underlined {
+    left: 600px;
+    margin-top: 12px;
+    position: absolute;
+}
+
+.color-word {
+    left: 635px;
+    margin-top: 5px;
+    position: absolute;
+}
+
+.background {
+    left: 680px;
+    margin-top: 5px;
+    position: absolute;
+}
+
+.line-two {
+    left: 720px;
+    position: absolute;
+}
+
+.alignment {
+    left: 755px;
+    margin-top: 5px;
+    position: absolute;
+}
+
+.markers {
+    left: 810px;
+    margin-top: 5px;
+    position: absolute;
+}
+
+.inter {
+    left: 860px;
+    margin-top: 5px;
+    position: absolute;
+}
+
+.to-do-list {
+    left: 910px;
+    margin-top: 5px;
+    position: absolute;
+}
+
+.shift-left {
+    left: 960px;
+    margin-top: 5px;
+    position: absolute;
+}
+
+.shift-right {
+    left: 1000px;
+    margin-top: 1px;
+    position: absolute;
+    transform: rotate(180deg);
+}
+
+/* .permission {
+    left: 1230px;
+    margin-top: 5px;
+    position: absolute;
+} */
+
+.permission {
+    left: 1230px;
+    margin-top: -15px;
+    position: absolute;
+    list-style: none;
+    z-index: 5;
+    transform-origin: 0% 0%;
+    transition: .3s linear;  
+    border-radius: 7px;
+}
+
+a .permission  > .submenu {
+    background: rgb(199, 8, 8);
+    visibility: hidden;
+    opacity: 0; 
+    transform-origin: 0% 0%;
+    transform: rotateX(-90deg);
+    transition: .3s linear;  
+    border: 1px solid #CBCBCC;
+    border-radius: 7px;
+    z-index: 5;
+    left: 1230px;
+    list-style: none;
+    position: relative;
+
+}
+
+.image-arrow-left:hover {
+    background: #7b7b7b; 
+    border-radius: 10px;
+    color: #000000;
+    font-weight: bolder;
+
+
+
+}
+
+.image-arrow-right:hover {
+    background: #7b7b7b; 
+    border-radius: 10px;
+    color: #000000;
+    font-weight: bolder;
+
+}
+
+.image-save:hover {
+    background: #7b7b7b; 
+    border-radius: 10px;
+    color: #000000;
+    font-weight: bolder;
+
+}
+
+.minus-font:hover {
+    background: #7b7b7b; 
+    border-radius: 100px;
+    color: #000000;
+
+}
+
+.plus-font:hover {
+    background: #7b7b7b; 
+    border-radius: 100px;
+    color: #000000;
+
+}
+
+.bold:hover {
+    background: #7b7b7b; 
+    border-radius: 10px;
+    color: #000000;
+    height: 40px;
+    width: 30px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.italic:hover {
+    background: #7b7b7b; 
+    border-radius: 10px;
+    color: #000000;
+    height: 40px;
+    width: 30px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.underlined:hover {
+    background: #7b7b7b; 
+    border-radius: 5px;
+    color: #000000;
+    height: 40px;
+    width: 30px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.color-word:hover {
+    background: #7b7b7b; 
+    border-radius: 10px;
+    color: #000000;
+    font-weight: bolder;
+}
+
+.background:hover {
+    background: #7b7b7b; 
+    border-radius: 10px;
+    color: #000000;
+    font-weight: bolder;
+}
+
+.alignment:hover {
+    background: #7b7b7b; 
+    border-radius: 10px;
+    color: #000000;
+    font-weight: bolder;
+}
+
+.markers:hover {
+    background: #7b7b7b; 
+    border-radius: 10px;
+    color: #000000;
+    font-weight: bolder;
+}
+
+.inter:hover {
+    background: #7b7b7b; 
+    border-radius: 10px;
+    color: #000000;
+    font-weight: bolder;
+}
+
+.to-do-list:hover {
+    background: #7b7b7b; 
+    border-radius: 10px;
+    color: #000000;
+    font-weight: bolder;
+}
+
+.shift-left:hover {
+    background: #7b7b7b; 
+    border-radius: 10px;
+    color: #000000;
+    font-weight: bolder;
+}
+
+.shift-right:hover {
+    background: #7b7b7b; 
+    border-radius: 10px;
+    color: #000000;
+    font-weight: bolder;
+}
+
+.permission:hover {
+    background: #7b7b7b; 
+    border-radius: 5px;
+    color: #000000;
+    font-weight: bolder;
+}

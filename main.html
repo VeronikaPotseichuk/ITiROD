@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Google Docs</title>
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=200%, user-scalable=no">
@@ -14,8 +15,9 @@
  	        required maxlength="15">
     </form>
     <nav>
+        <div class="image-file"></div>
         <ul class="topmenu">
-          <li><a href="" class="active">File<span class="fa fa-angle-down"></span></a>
+          <li><a href="" class="active">File</a>
             <ul class="submenu">
                 <li><a href="">Create</a></li>
                 <li><a href="">Save</a></li>
@@ -25,12 +27,12 @@
               <li><a href="">PDF</a></li>
               <li><a href="">DOCX</a></li>
               <li><a href="">ZIP</a></li>
-            </ul>
+              </ul>
               </li>
               <li><a href="">Delete</a></li>
             </ul>
           </li>
-          <li><a href="" class="active">Insert<span class="fa fa-angle-down"></span></a>
+          <li><a href="" class="active">Insert</a>
             <ul class="submenu">
                 <li><a href="">Image</a></li>
                 <li><a href="">Drawing</a></li>
@@ -45,14 +47,128 @@
           </li>
             <div class="image"></div>
             <div>
-                <a href="" class="active-mod" id="points">...<span class="fa fa-angle-down"></span></a>
+                <a href="" class="active-mod" id="points">...</a>
             </div>
         </ul>
     </nav>
+
+    <nav class="tools-bar">
+        <a href="" class="image-arrow-left" title="Arrow left">
+            <img src="images/arrow.png" width="41" height="41">
+        </a>
+        <a href="" class="image-arrow-right" title="Arrow right">
+            <img src="images/arrow.png" width="41" height="41">
+        </a>
+        <a href="" class="image-save" title="Save file">
+            <img src="images/save.png" width="41" height="41">
+
+        </a>
+        <select tabindex="0" id="scale" title="Scale">
+            <option value="option1">100%</option>
+            <option value="option2">75%</option>
+            <option value="option3">50%</option>
+          </select>
+
+        <select tabindex="0" id="typeFont" title="Font">
+            <option value="option1">Time New Romance</option>
+            <option value="option2">Calibri</option>
+            <option value="option3">Math</option>
+          </select>
+        
+        
+        <a href="" class="minus-font" title="Minus size font">
+            <img src="images/mimus.png" width="30" height="30">
+
+        </a>
+    
+        <input type="text" id="mySelect" list="myList" maxlength="2" onkeydown="if(event.keyCode===38 || event.keyCode===40) {event.preventDefault();}" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+
+        <datalist id="myList">
+            <option value="14"></option>
+            <option value="10"></option>
+            <option value="8"></option>
+        </datalist>
+          
+        <a href="" class="plus-font" title="Plus size font">            
+            <img src="images/plus.png" width="30" height="30">
+        </a>
+
+        <a class="line-one">            
+            <img src="images/line.png" height="50">
+        </a>
+
+        <a href="" class="bold" title="Bold">
+            <img src="images/b.svg" height="25">
+        </a>
+
+        <a href="" class="italic" title="Italic">
+            <img src="images/i.png" height="25">
+        </a>
+
+        <a href="" class="underlined" title="Underlined">
+            <img src="images/u.png" height="25">
+        </a>
+
+        <a href="" class="color-word" title="Word color">
+            <img src="images/a.png" height="40">
+        </a>
+
+        <a href="" class="background" title="background">
+            <img src="images/background.png" height="41" width="41">
+        </a>
+
+        <a class="line-two">            
+            <img src="images/line.png" height="50">
+        </a>
+
+        <a href="" class="alignment"  title="Alignment">            
+            <img src="images/alignment.png" height="41" width="41">
+        </a>
+
+        <a href="" class="markers"  title="Markers">            
+            <img src="images/l.webp" height="41" width="41">
+        </a>
+
+        <a href="" class="inter"  title="inter">            
+            <img src="images/inter.png" height="41" width="41">
+        </a>
+
+        <a href="" class="to-do-list"  title="To-do list">            
+            <img src="images/list.png" height="41" width="41">
+        </a>
+
+        <a href="" class="shift-left"  title="Shift left">            
+            <img src="images/shift.png" height="41" width="41">
+        </a>
+
+        <a href="" class="shift-right"  title="Shift right">            
+            <img src="images/shift.png" height="41" width="41">
+        </a>
+
+        <li><a href="" class="permission" title="Permission">
+            <img src="images/edit.png" height="41" width="41">
+        </a>
+            <ul class="submenu" id="permission">
+                <li><a href="" title="Edit">
+                    <img src="images/edit.png" height="41" width="41">
+                </a></li>
+                <li><a href="" title="Comment">
+                    <img src="images/comment.png" height="41" width="41">
+                </a></li>
+                <li><a href="" title="Read">
+                    <img src="images/read.png" height="41" width="41">
+                </a></li>
+            </ul>
+        </li>
+
+        <!-- <a href="" class="permission"  title="Permission">            
+            <img src="images/edit.png" height="41" width="41">
+        </a> -->
+    </nav>
+
     <div class="wrapper">
           <div class="gdocs-input-content" contenteditable></div>
-</div>
-
+    </div>
   </body>
 </html>
 
