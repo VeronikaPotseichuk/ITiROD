@@ -4,162 +4,201 @@
     <meta charset="UTF-8">
     <title>Google Docs</title>
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="main_hover.css">
+    <script src="main.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=200%, user-scalable=no">
 
     <form action="http://server.com" method="post">
-        <input type="text" class="name-input" name="name"
+        <input type="text" class="name-file_input" name="name"
             placeholder="Input name"
- 	        required maxlength="15">
+ 	        required maxlength="100">
     </form>
     <nav>
         <div class="image-file"></div>
         <ul class="topmenu">
           <li><a href="" class="active">File</a>
             <ul class="submenu">
-                <li><a href="">Create</a></li>
-                <li><a href="">Save</a></li>
-                <li><a href="">Rename</a></li>
-                <li><a href="">Dowland<span class="fa fa-angle-down"></span></a>
+                <li>                    
+                    <img src="images/pen.png" id="pen_image" height="15" width="15">
+                    <a href="">Create</a></li>
+                <li>
+                    <img src="images/save.png" id="save_image" height="15" width="15">
+                    <a href="">Save</a></li>
+                <li>
+                    <img src="images/rename.png" id="rename_image" height="15" width="15">
+                    <a href="">Rename</a></li>
+                <li>
+                    <img src="images/dowland.png" id="dowland_image" height="15" width="15">
+                    <a href="">Dowland<span class="fa fa-angle-down"></span></a>
                 <ul class="submenu">
               <li><a href="">PDF</a></li>
               <li><a href="">DOCX</a></li>
               <li><a href="">ZIP</a></li>
               </ul>
               </li>
-              <li><a href="">Delete</a></li>
+              <li>
+                <img src="images/remove.png" id="remove_image" height="15" width="15">
+                <a href="">Delete</a></li>
             </ul>
           </li>
           <li><a href="" class="active">Insert</a>
             <ul class="submenu">
-                <li><a href="">Image</a></li>
-                <li><a href="">Drawing</a></li>
-                <li><a href="">Table<span class="fa fa-angle-down"></span></a>
+                <li>
+                    <img src="images/image.png" id="image_image" height="15" width="15">
+                    <a href="">Image</a></li>
+                <li>
+                    <img src="images/paint.png" id="drawing_image" height="15" width="15">
+                    <a href="drawing.html">Drawing</a></li>
+                <li>
+                    <img src="images/table.png" id="table_image" height="15" width="15">
+                    <a href="">Table<span class="fa fa-angle-down"></span></a>
                 <ul class="submenu">
                     <li><a href="">FGjhbdfjndskgfndskf</a></li>
                 </ul>
               </li>
-              <li><a href="">Special character</a></li>
-              <li><a href="">Emoji</a></li>
+              <li>
+                <img src="images/character.png" id="character_image" height="15" width="15">
+                <a href="">Special character</a></li>
+              <li>
+                <img src="images/emoji.png" id="emoji_image" height="15" width="15">
+                <a href="">Emoji</a></li>
             </ul>
           </li>
-            <div class="image"></div>
+            <div class="owner-icon"></div>
             <div>
-                <a href="" class="active-mod" id="points">...</a>
+                <button class="active-mod" id="points" onclick="openPopup()">...</button>
             </div>
         </ul>
     </nav>
 
     <nav class="tools-bar">
-        <a href="" class="image-arrow-left" title="Arrow left">
+        <a href="" class="arrow-left_image" title="Arrow left">
             <img src="images/arrow.png" width="41" height="41">
         </a>
-        <a href="" class="image-arrow-right" title="Arrow right">
+        <a href="" class="arrow-right_image" title="Arrow right">
             <img src="images/arrow.png" width="41" height="41">
         </a>
-        <a href="" class="image-save" title="Save file">
+        <a href="" class="save_image" title="Save file">
             <img src="images/save.png" width="41" height="41">
 
         </a>
-        <select tabindex="0" id="scale" title="Scale">
+        <select tabindex="0" id="scale_list" title="Scale">
             <option value="option1">100%</option>
             <option value="option2">75%</option>
             <option value="option3">50%</option>
           </select>
 
-        <select tabindex="0" id="typeFont" title="Font">
+        <select tabindex="0" id="typeFont_list" title="Font">
             <option value="option1">Time New Romance</option>
             <option value="option2">Calibri</option>
             <option value="option3">Math</option>
           </select>
         
         
-        <a href="" class="minus-font" title="Minus size font">
+        <a href="" class="minus-font_image" title="Minus size font">
             <img src="images/mimus.png" width="30" height="30">
 
         </a>
     
-        <input type="text" id="mySelect" list="myList" maxlength="2" onkeydown="if(event.keyCode===38 || event.keyCode===40) {event.preventDefault();}" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
-
-        <datalist id="myList">
-            <option value="14"></option>
-            <option value="10"></option>
-            <option value="8"></option>
-        </datalist>
+        <input type="text" id="mySelect_input" list="myList" maxlength="2" onkeydown="if(event.keyCode===38 || event.keyCode===40) {event.preventDefault();}" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+            <datalist id="myList">
+                <option value="14"></option>
+                <option value="10"></option>
+                <option value="8"></option>
+            </datalist>
           
-        <a href="" class="plus-font" title="Plus size font">            
+        <a href="" class="plus-font_image" title="Plus size font">            
             <img src="images/plus.png" width="30" height="30">
         </a>
 
-        <a class="line-one">            
+        <a class="line-one_image">            
             <img src="images/line.png" height="50">
         </a>
 
-        <a href="" class="bold" title="Bold">
+        <a href="" class="bold_image" title="Bold">
             <img src="images/b.svg" height="25">
         </a>
 
-        <a href="" class="italic" title="Italic">
+        <a href="" class="italic_image" title="Italic">
             <img src="images/i.png" height="25">
         </a>
 
-        <a href="" class="underlined" title="Underlined">
+        <a href="" class="underlined_image" title="Underlined">
             <img src="images/u.png" height="25">
         </a>
 
-        <a href="" class="color-word" title="Word color">
+        <a href="" class="color-word_image" title="Word color">
             <img src="images/a.png" height="40">
         </a>
 
-        <a href="" class="background" title="background">
+        <a href="" class="background_image" title="background">
             <img src="images/background.png" height="41" width="41">
         </a>
 
-        <a class="line-two">            
+        <a class="line-two_image">            
             <img src="images/line.png" height="50">
         </a>
 
-        <a href="" class="alignment"  title="Alignment">            
+        <a href="" class="alignment_image"  title="Alignment">            
             <img src="images/alignment.png" height="41" width="41">
         </a>
 
-        <a href="" class="markers"  title="Markers">            
+        <a href="" class="markers_image"  title="Markers">            
             <img src="images/l.webp" height="41" width="41">
         </a>
 
-        <a href="" class="inter"  title="inter">            
+        <a href="" class="inter_image"  title="inter">            
             <img src="images/inter.png" height="41" width="41">
         </a>
 
-        <a href="" class="to-do-list"  title="To-do list">            
+        <a href="" class="to-do-list_image"  title="To-do list">            
             <img src="images/list.png" height="41" width="41">
         </a>
 
-        <a href="" class="shift-left"  title="Shift left">            
+        <a href="" class="shift-left_image"  title="Shift left">            
             <img src="images/shift.png" height="41" width="41">
         </a>
 
-        <a href="" class="shift-right"  title="Shift right">            
+        <a href="" class="shift-right_image"  title="Shift right">            
             <img src="images/shift.png" height="41" width="41">
         </a>
 
-        <li><a href="" class="permission" title="Permission">
+        <!-- <li><a href="" class="permission_image" title="Permission">
             <img src="images/edit.png" height="41" width="41">
         </a>
             <ul class="submenu" id="permission">
                 <li><a href="" title="Edit">
-                    <img src="images/edit.png" height="41" width="41">
+                    <img src="images/edit.png" id="edit_button" height="41" width="41">
                 </a></li>
                 <li><a href="" title="Comment">
-                    <img src="images/comment.png" height="41" width="41">
+                    <img src="images/comment.png" id="comment_button" height="41" width="41">
                 </a></li>
                 <li><a href="" title="Read">
-                    <img src="images/read.png" height="41" width="41">
+                    <img src="images/read.png" id="read_button" height="41" width="41">
                 </a></li>
             </ul>
-        </li>
+        </li> -->
+
+        <details>
+            <summary>            
+                <img src="images/edit.png" class="permission_image" height="41" width="41">
+            </summary>
+            <ol>
+                <li><a href="" title="Edit">
+                    <img src="images/edit.png" id="edit_button" height="41" width="41">
+                </a></li>
+                <li><a href="" title="Comment">
+                    <img src="images/comment.png" id="comment_button" height="41" width="41">
+                </a></li>
+                <li><a href="" title="Read">
+                    <img src="images/read.png" id="read_button" height="41" width="41">
+                </a></li>
+            </ol>
+     </details>
+     
 
         <!-- <a href="" class="permission"  title="Permission">            
             <img src="images/edit.png" height="41" width="41">
@@ -169,6 +208,58 @@
     <div class="wrapper">
           <div class="gdocs-input-content" contenteditable></div>
     </div>
+
+
+
+    <div class="popup" id="popup">
+        <div class="popup-header">
+            <h2>Add users</h2>
+            <button class="close_button" onclick="closePopup()">
+                <img src="images/close.png" height="30" width="30">
+            </button>
+        </div>
+        <div class="popup-content">
+            <form action="http://server.com" method="post" onsubmit="validateEmail(event)" id="emailForm">
+                <input type="email" class="email-user_input" name="email" id="email"
+                    placeholder="Input email"
+                     required maxlength="50"
+                     required pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$">
+            <nav>
+                <ul class="top">
+                    <li><a href="" class="active">...</a>
+                        <ul id="myDropdown" class="submenu">
+                        <li>
+                            <img src="images/edit.png" id="edit-choice_image" height="15" width="15">
+                            <lable><input type="checkbox" value="Option1"><span class="checkbox-text"> Edit</span></lable>
+                        </li>                    
+                        <li>
+                            <img src="images/comment.png" id="comment-choice_image" height="15" width="15">
+                            <lable><input type="checkbox" value="Option2"><span class="checkbox-text"> Comment</span></lable>
+                        </li>                    
+                        <li>
+                            <img src="images/read.png" id="read-choice_image" height="15" width="15">
+                            <lable><input type="checkbox" value="Option3"><span class="checkbox-text"> Read</span></lable>
+                        </li>                    
+                    </ul>
+                </ul>
+            </nav>
+            <input type="submit" name="submit_button" value="Send!">
+            <input type="reset" name="reset_button" value="Reset">         
+            </form>
+        </div>
+        <!-- <form>
+            <div class="email-container">
+              <input type="email" name="email" placeholder="Email" required>
+              <button type="button" class="add-email-field">Добавить еще email</button>
+            </div>
+            <button type="submit">Отправить</button>
+          </form> -->
+          <input type="button" class="new-form_button" name="new-form_button" value="Add more">
+
+    </div>
+      
+
+
   </body>
 </html>
 

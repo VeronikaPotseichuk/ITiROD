@@ -1,0 +1,18 @@
+#app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #app canvas {
+    border: 1px solid black;
+  }
+  
+  #app > div {
+    margin-top: 10px;
+  }
+  
+  #app > div > button {
+    margin-right: 10px;
+  }
+  
