@@ -7,77 +7,67 @@ function closePopup() {
 }
 
 
-// const forme = document.querySelector("#emailForm");
-
-// forme.addEventListener("submit", function(event) {
-//   event.preventDefault();
-
-//   const emailInput = document.querySelector("#email");
-//   const email = emailInput.value.trim();
-
-//   if (emailInput.checkValidity()) { // проверяем, что данные проходят валидацию
-//     const previousDomains = new Set(Array.from(document.querySelectorAll("input[name='email']")).map(input => input.value.split("@")[1]));
-//     const domain = email.substring(email.lastIndexOf("@") + 1);
-//     if (!previousDomains.has(domain)) {
-//       // действия, если email введен корректно и домен не совпадает с предыдущими введенными email-адресами
-//       alert("Email-адрес введен корректно и уникален!");
-//     } else {
-//       // действия, если домен совпадает с предыдущими введенными email-адресами
-//       alert("Введите email-адрес с другим доменом!");
-//     }
-//   } else {
-//     // действия, если данные введены некорректно
-//     alert("Введите корректный email-адрес!");
-//   }
-// });
+  
 
 
-// // функция для создания нового поля ввода email
-// function createEmailInput() {
-//     const emailContainer = document.querySelector(".email-container");
-//     const newEmailInput = document.createElement("input");
-//     newEmailInput.type = "email";
-//     newEmailInput.name = "email";
-//     newEmailInput.placeholder = "Email";
-//     newEmailInput.required = true;
-//     emailContainer.insertBefore(newEmailInput, document.querySelector(".add-email-field"));
-//   }
-  
-//   // функция для проверки email на валидность
-//   function validateEmail(email) {
-//     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-//     return regex.test(email);
-//   }
-  
-//   // обработчик для кнопки "Добавить еще email"
-//   const addEmailButton = document.querySelector(".add-email-field");
-//   addEmailButton.addEventListener("click", function() {
-//     const emailInputs = document.querySelectorAll("input[type='email']");
-//     const lastEmailInput = emailInputs[emailInputs.length - 1];
-//     const lastEmailValue = lastEmailInput.value.trim();
-  
-//     // проверяем, что предыдущий email введен корректно
-//     if (!validateEmail(lastEmailValue)) {
-//       alert("Введите корректный email-адрес!");
-//       return;
-//     }
-  
-//     createEmailInput();
-//   });
-  
-//   // обработчик для отправки формы
-//   const form = document.querySelector("form");
-//   form.addEventListener("submit", function(event) {
-//     const emailInputs = document.querySelectorAll("input[type='email']");
-//     for (let i = 0; i < emailInputs.length; i++) {
-//       const email = emailInputs[i].value.trim();
-  
-//       // проверяем, что email введен корректно
-//       if (!validateEmail(email)) {
-//         alert("Введите корректный email-адрес!");
-//         event.preventDefault(); // отменяем отправку формы
-//         return;
-//       }
-//     }
-//   });
-  
+function openDrawing() {
+  try {
+    document.getElementById("drawing_form").style.display = "block";
+
+    const canvas = document.getElementById("canvas");
+    const context = canvas.getContext("2d");
+    let isDrawing = false;
+    const color = document.getElementById('color');
+    const brushSize = document.getElementById('penWidth');
+
+    canvas.addEventListener("mousedown", startDrawing);
+    canvas.addEventListener("mousemove", draw);
+    canvas.addEventListener("mouseup", stopDrawing);
+    canvas.addEventListener("mouseout", stopDrawing);
+
+    function startDrawing(event) {
+      isDrawing = true;
+      const rect = canvas.getBoundingClientRect();
+      context.beginPath();
+      context.moveTo(event.clientX - rect.left, event.clientY - rect.top);
+    }
+
+    function draw(event) {
+      if (!isDrawing) return;
+      const rect = canvas.getBoundingClientRect();
+      context.strokeStyle = color.value;
+      context.lineWidth = brushSize.value;
+      context.lineTo(event.clientX - rect.left, event.clientY - rect.top);
+      context.stroke();
+    }
+
+    function stopDrawing() {
+      isDrawing = false;
+    }
+
+    const saveButton = document.getElementById('saveCanvas');
+    saveButton.addEventListener('click', function() {
+      const canvas = document.getElementById('canvas');
+      const imageData = canvas.toDataURL('image/png');
+      document.getElementById('imageData').value = imageData;
+      document.forms[0].submit();
+    });
+
+  } catch (error) {
+    console.log(error);
+    alert('An error occurred while opening the drawing form. Please try again.');
+  }
+}
+
+function closeDrawing() {
+  document.getElementById("drawing_form").style.display = "none";
+}
+
+const form = document.querySelector('form');
+form.addEventListener('submit', (event) => {
+  event.preventDefault(); 
+  const formData = new FormData(form);
+  const xhr = new XMLHttpRequest();
+  xhr.open('POST', form.action);
+  xhr.send(formData);
+});

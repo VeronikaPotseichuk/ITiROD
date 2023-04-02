@@ -6,16 +6,24 @@
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="main_hover.css">
     <script src="main.js"></script>
+    <!-- <script src="drawing.js"></script> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  </head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      canvas {
+        border: 1px solid black;
+      }
+    </style>
+    </head>
   <body>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=200%, user-scalable=no">
 
-    <form action="http://server.com" method="post">
+    <form action="http://localhost:8000/main.html" method="post" enctype="multipart/form-data">
         <input type="text" class="name-file_input" name="name"
-            placeholder="Input name"
- 	        required maxlength="100">
-    </form>
+              placeholder="Input name"
+              required maxlength="100">
+        <input type="hidden" name="imageData" id="imageData">
+      </form>
     <nav>
         <div class="image-file"></div>
         <ul class="topmenu">
@@ -51,7 +59,8 @@
                     <a href="">Image</a></li>
                 <li>
                     <img src="images/paint.png" id="drawing_image" height="15" width="15">
-                    <a href="drawing.html">Drawing</a></li>
+                    <button class="drawing_button" id="drawing" onclick="openDrawing()">Drawing</button>
+                    <!-- <a href="drawing.html">Drawing</a></li> -->
                 <li>
                     <img src="images/table.png" id="table_image" height="15" width="15">
                     <a href="">Table<span class="fa fa-angle-down"></span></a>
@@ -254,10 +263,28 @@
             </div>
             <button type="submit">Отправить</button>
           </form> -->
-          <input type="button" class="new-form_button" name="new-form_button" value="Add more">
-
+          <input type="button" class="new-form_button" name="new-form_button" value="Add more">       
     </div>
-      
+
+
+    <div class="drawing_form" id="drawing_form" style="display: none;">
+        <div class="drawing-header">
+          <h2>Drawing</h2>
+          <button class="close-drawing_button" onclick="closeDrawing()">
+            <img src="images/close.png" height="30" width="30">
+          </button>
+        </div>
+        <div class="drawing-content">
+          <div id="toolbar">
+            <label for="penWidth">Pen Width:</label>
+            <input type="range" id="penWidth" min="1" max="50" value="5">
+            <label for="penColor">Pen Color:</label>
+            <input type="color" id="color" value="#000000">
+            <button id="saveCanvas">Enter</button>
+          </div>
+          <canvas id="canvas" width="500" height="400"></canvas>
+        </div>
+      </div>
 
 
   </body>

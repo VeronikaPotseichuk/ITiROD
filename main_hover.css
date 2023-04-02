@@ -213,3 +213,7 @@ div .active-mod:hover{
     text-decoration: underline;
     text-decoration-color: red;
 }
+
+.drawing_button:hover {
+    font-weight: bolder;
+}
