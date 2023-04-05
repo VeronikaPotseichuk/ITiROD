@@ -5,8 +5,7 @@
     <title>Google Docs</title>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="main_hover.css">
-    <script src="main.js"></script>
-    <!-- <script src="drawing.js"></script> -->
+    <script src="main.js"></script>    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -18,17 +17,18 @@
   <body>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=200%, user-scalable=no">
 
-    <form action="http://localhost:8000/main.html" method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data">
         <input type="text" class="name-file_input" name="name"
               placeholder="Input name"
               required maxlength="100">
-        <input type="hidden" name="imageData" id="imageData">
       </form>
     <nav>
-        <div class="image-file"></div>
+        <div class="image-file">
+            <img src="images/icon.png" id="icon_image" height="50px">
+        </div>
         <ul class="topmenu">
-          <li><a href="" class="active">File</a>
-            <ul class="submenu">
+          <li><a class="active">File</a>
+                <ul class="submenu">
                 <li>                    
                     <img src="images/pen.png" id="pen_image" height="15" width="15">
                     <a href="">Create</a></li>
@@ -52,25 +52,21 @@
                 <a href="">Delete</a></li>
             </ul>
           </li>
-          <li><a href="" class="active">Insert</a>
+          <li><a class="active">Insert</a>
             <ul class="submenu">
                 <li>
                     <img src="images/image.png" id="image_image" height="15" width="15">
-                    <a href="">Image</a></li>
+                    <button class="image_button" id="image" onclick="openImage()">Image</button>
                 <li>
                     <img src="images/paint.png" id="drawing_image" height="15" width="15">
                     <button class="drawing_button" id="drawing" onclick="openDrawing()">Drawing</button>
-                    <!-- <a href="drawing.html">Drawing</a></li> -->
                 <li>
                     <img src="images/table.png" id="table_image" height="15" width="15">
-                    <a href="">Table<span class="fa fa-angle-down"></span></a>
-                <ul class="submenu">
-                    <li><a href="">FGjhbdfjndskgfndskf</a></li>
-                </ul>
+                    <button class="table_button" id="table" onclick="openTable()">Table</button>
               </li>
               <li>
                 <img src="images/character.png" id="character_image" height="15" width="15">
-                <a href="">Special character</a></li>
+                <button class="character_button" id="character" onclick="openCharacter()">Special characters</button>
               <li>
                 <img src="images/emoji.png" id="emoji_image" height="15" width="15">
                 <a href="">Emoji</a></li>
@@ -175,48 +171,43 @@
             <img src="images/shift.png" height="41" width="41">
         </a>
 
-        <!-- <li><a href="" class="permission_image" title="Permission">
-            <img src="images/edit.png" height="41" width="41">
-        </a>
-            <ul class="submenu" id="permission">
-                <li><a href="" title="Edit">
-                    <img src="images/edit.png" id="edit_button" height="41" width="41">
-                </a></li>
-                <li><a href="" title="Comment">
-                    <img src="images/comment.png" id="comment_button" height="41" width="41">
-                </a></li>
-                <li><a href="" title="Read">
-                    <img src="images/read.png" id="read_button" height="41" width="41">
-                </a></li>
-            </ul>
-        </li> -->
-
         <details>
-            <summary>            
+            <summary id="summary-image">
                 <img src="images/edit.png" class="permission_image" height="41" width="41">
             </summary>
             <ol>
-                <li><a href="" title="Edit">
-                    <img src="images/edit.png" id="edit_button" height="41" width="41">
-                </a></li>
-                <li><a href="" title="Comment">
-                    <img src="images/comment.png" id="comment_button" height="41" width="41">
-                </a></li>
-                <li><a href="" title="Read">
-                    <img src="images/read.png" id="read_button" height="41" width="41">
-                </a></li>
+                <li>
+                    <button title="Edit" onclick="changeSummaryImage('edit.png')">
+                        <img src="images/edit.png" id="edit_button" height="41" width="41">
+                    </button>
+                </li>
+                <li>
+                    <button title="Comment" onclick="changeSummaryImage('comment.png')">
+                        <img src="images/comment.png" id="comment_button" height="41" width="41">
+                    </button>
+                </li>
+                <li>
+                    <button title="Read" onclick="changeSummaryImage('read.png')">
+                        <img src="images/read.png" id="read_button" height="41" width="41">
+                    </button>
+                </li>
             </ol>
-     </details>
-     
-
-        <!-- <a href="" class="permission"  title="Permission">            
-            <img src="images/edit.png" height="41" width="41">
-        </a> -->
+        </details>
     </nav>
 
     <div class="wrapper">
-          <div class="gdocs-input-content" contenteditable></div>
+        <div class="gdocs-input-content" id="gdocs-input-content" action="http://localhost:8000/main.html" contenteditable>
+        </div>
+
+
     </div>
+
+
+
+
+<!-- __________________________________________________________________________________ -->
+
+
 
 
 
@@ -267,6 +258,72 @@
     </div>
 
 
+      <!-- <div class="special-characters_form" id="special-characters_form">
+        <div class="character-header">
+          <h2>Special characters</h2>
+          <button class="close_button" onclick="closeCharacter()">
+            <img src="images/close.png" height="30" width="30">
+          </button>
+        </div>
+        <details>
+            <summary>            
+                <option value="&amp;hearts;">&hearts;</option>
+            </summary>
+            <ol>
+                <li><option value="&amp;hearts;">&hearts;</option></li>
+                <li><option value="&amp;clubs;">&clubs;</option></li>
+                <li></li>
+            </ol>
+            <option value="&amp;hearts;">&hearts;</option>
+            <option value="&amp;spades;">&spades;</option>
+            <option value="&amp;clubs;">&clubs;</option>
+            <option value="&amp;diams;">&diams;</option>
+            <option value="&amp;copy;">&copy;</option>
+          </select>
+      </div> -->
+
+
+      <div class="table_form" id="table_form">
+        <div class="table-header">
+          <h2>Enter</h2>
+          <button class="close_button" onclick="closeTable()">
+            <img src="images/close.png" height="30" width="30">
+          </button>
+        </div>
+            <div>
+            <label for="rows">Количество строк:</label>
+            <input type="number" id="rows" name="rows" min="1" max="50">
+
+            <label for="columns">Количество столбцов:</label>
+            <input type="number" id="columns" name="columns" min="1" max="50">
+
+            <button onclick="createTable()">Создать таблицу</button>
+            </div>
+      </div>
+
+      
+
+    <div class="image_form" id="image_form">
+        <div class="image-header">
+          <h2>Add Image</h2>
+          <button class="close_button" onclick="closeImage()">
+            <img src="images/close.png" height="30" width="30">
+          </button>
+        </div>
+        <!-- <form action="http://server.com" method="post" class="select_file"
+            enctype="multipart/form-data"
+            accept="image/jpeg,image/png,image/gif" >
+                Select file:<br><br>
+                <input type="file" name="file_input">
+                <br><br>
+                <button onclick="addImage()">Add</button>
+                <input type="submit" value="Add!" class="add-file_input">
+        </form> -->
+        <button class="add-file_input" onclick="addImage()">Add images</button>
+
+      </div>
+
+
     <div class="drawing_form" id="drawing_form" style="display: none;">
         <div class="drawing-header">
           <h2>Drawing</h2>
@@ -281,6 +338,7 @@
             <label for="penColor">Pen Color:</label>
             <input type="color" id="color" value="#000000">
             <button id="saveCanvas">Enter</button>
+            <!-- <button onclick="createDrawing()">Enter</button> -->
           </div>
           <canvas id="canvas" width="500" height="400"></canvas>
         </div>

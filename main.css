@@ -2,14 +2,14 @@ body {
     font-family: Arial, sans-serif;
     background: #F0ECEC;
     margin: 0;
-    }
+}
 
 nav {
-        padding: 0;
-        width: 225px;
-        height: 27px;
-        margin-top: 5px;
-        margin-left: 100px;
+    padding: 0;
+    width: 225px;
+    height: 27px;
+    margin-top: 5px;
+    margin-left: 100px;
 }
 
 nav ul {
@@ -29,6 +29,8 @@ nav a {
     display: block;
     transition: .2s linear;
 }
+
+
 
 nav button {
     text-decoration: none;
@@ -73,6 +75,8 @@ nav button {
 }
     
 .topmenu > li > a.active, 
+
+.topmenu > li > button.active, 
 
 .topmenu .fa,
 
@@ -249,24 +253,24 @@ nav li:hover > .submenu {
     top: 50%;
     left: 50%;
     margin-top: 100px;
-  }
+}
   
-  .gdocs-input-toolbar {
+.gdocs-input-toolbar {
     display: flex;
     justify-content: flex-start;
     margin-bottom: 5px;
-  }
+}
   
-  .gdocs-input-toolbar button {
+.gdocs-input-toolbar button {
     margin-right: 10px;
     padding: 5px;
     background-color: #f2f2f2;
     border: 5px;
     border-radius: 3px;
     cursor: pointer;
-  }
+}
   
-  .gdocs-input-content {
+.gdocs-input-content {
     margin-top: 10px;
     width: 794px;
     height: 1123px;
@@ -285,9 +289,9 @@ nav li:hover > .submenu {
     /* overflow: hidden; */
     overflow-y: auto;
     word-break:break-all;
-  }
+}
     
-  .owner-icon {
+.owner-icon {
     background-image: url("image1.jpg");
     width: 50px;
     height: 50px;
@@ -298,18 +302,17 @@ nav li:hover > .submenu {
     position: absolute;
     right: 100px;
     top: 20px;
-  }
+}
 
 
 .image-file {
-    background: #666;
     border: #000000;
     width: 40px;
     height: 50px;
     position: absolute;
     left: 50px;
     top: 20px;
-  }
+}
 
 .tools-bar {
     background: #D9D9D9; 
@@ -479,11 +482,6 @@ nav li:hover > .submenu {
     transform: rotate(180deg);
 }
 
-/* .permission {
-    left: 1230px;
-    margin-top: 5px;
-    position: absolute;
-} */
 
 .permission_image {
     left: 1230px;
@@ -498,10 +496,11 @@ nav li:hover > .submenu {
 
 details ol {
     float: right;
-    margin-right: 29px;
+    margin-right: 22px;
     list-style: none;
     margin-top: 50px;
-
+    border: none;
+    background-color: none;
 }
 
 summary {
@@ -648,3 +647,169 @@ summary {
     background: none;
 }
 
+/*  */
+.special-characters_form {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 200px;
+    padding: 20px;    
+    border: 1px solid rgb(0, 0, 0);
+    background-color: white;
+    display: none;
+    border-radius: 10px;
+}
+  
+.character-header {
+    background-color: white;
+    padding: 10px;
+    position: relative;
+    text-align: center;
+}
+  
+.close-char_button {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #000000;
+}
+  
+.special-characters {
+    background-color: white;
+    margin: 50px;
+}
+  
+.character_button {
+    border: none;
+    background: none;
+}
+
+/*  */
+.image_form {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 200px;
+    padding: 20px;    
+    border: 1px solid rgb(0, 0, 0);
+    display: none;
+    border-radius: 10px;
+    background-color: rgb(252, 240, 240);
+}
+  
+.image-header {
+    background-color: rgb(252, 240, 240);
+    padding: 10px;
+    position: relative;
+    text-align: center;
+}
+  
+.close_button {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #000000;
+}
+  
+.image_button {
+    /* position: relative; */
+    border: none;
+    background: none;
+}
+
+
+.add-file_input {
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    letter-spacing: 3px;
+    font-size: 20px;
+    transition: .3s linear;
+    background-color: rgb(252, 240, 240);
+    padding-top: 30px;
+    margin-left: 37%;
+}
+
+.select_file input[type="file"]{
+    border: none;
+    background: none;
+    font-size: 20px;
+    transition: .3s linear;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: rgb(252, 240, 240);
+
+}
+
+/*  */
+
+.table_form {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 200px;
+    padding: 20px;    
+    border: 1px solid rgb(0, 0, 0);
+    display: none;
+    border-radius: 10px;
+    background-color: rgb(252, 240, 240);
+}
+  
+.table-header {
+    background-color: rgb(252, 240, 240);
+    padding: 10px;
+    position: relative;
+    text-align: center;
+}
+  
+.close_button {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #000000;
+}
+  
+.table_button {
+    border: none;
+    background: none;
+}
+
+table {
+    border-collapse: collapse;
+    /* table-layout: fixed; */
+    width: 500px;
+    height: auto;
+    /* height: 300px; */
+    table-layout: fixed;
+    resize: both;
+    overflow: auto;
+    margin: 10px;
+    /* max-width: 100%;
+    max-height: 100%; */
+}
+
+td, th {
+    border: 1px solid black;
+    padding: 10px;
+}
+  
+/*  */
+
+.gdocs-input-content img {
+    margin: 10px;
+}

@@ -217,3 +217,28 @@ div .active-mod:hover{
 .drawing_button:hover {
     font-weight: bolder;
 }
+
+.image_button:hover{
+    font-weight: bolder;
+}
+
+.add-file_input:hover{
+    letter-spacing: 5px;
+    font-weight: bolder;
+    color: red;
+
+}
+
+.character_button:hover {
+    font-weight: bolder;
+}
+
+.table_button:hover {
+    font-weight: bolder;
+}
+
+.gdocs-input-content img:hover {
+    border: 1px solid rgb(255, 0, 0);
+    cursor: pointer;
+}
+
