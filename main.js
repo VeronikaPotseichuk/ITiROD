@@ -248,3 +248,25 @@ window.addEventListener('click', function(e) {
       details.removeAttribute('open');
   }
 });
+
+function makeBold() {
+  var content = document.getElementById("gdocs-input-content");
+  content.style.fontWeight = "bold";
+}
+
+function makeItalic() {
+  var content = document.getElementById("gdocs-input-content");
+  content.style.fontStyle = "italic";
+}
+
+function makeUnderlined() {
+  var content = document.getElementById("gdocs-input-content");
+  content.style.textDecoration = "underline";
+}
+
+
+function changeFont() {
+  var font = document.getElementById("typeFont_list").value;
+  document.getElementById("gdocs-input-content").style.fontFamily = font;
+}
+
