@@ -105,7 +105,6 @@ function addImage() {
       img.style.maxWidth = '100%';
       img.style.height = 'auto';
       document.getElementById('gdocs-input-content').appendChild(img);
-      // сохраняем изображение в input с id 'imageData'
       const imageDataInput = document.getElementById('imageData');
       imageDataInput.value = e.target.result;
     }
@@ -249,24 +248,191 @@ window.addEventListener('click', function(e) {
   }
 });
 
+window.addEventListener('click', function(e) {
+  const details = document.getElementsByTagName('details')[0];
+  if (!details.contains(e.target)) {
+      details.removeAttribute('open');
+  }
+});
+
 function makeBold() {
   var content = document.getElementById("gdocs-input-content");
-  content.style.fontWeight = "bold";
+  if (content.style.fontWeight === "bold") {
+    content.style.fontWeight = "normal";
+  } else {
+    content.style.fontWeight = "bold";
+  }
 }
 
 function makeItalic() {
   var content = document.getElementById("gdocs-input-content");
-  content.style.fontStyle = "italic";
+  if (content.style.fontStyle === "italic") {
+    content.style.fontStyle = "normal";
+  } else {
+    content.style.fontStyle = "italic";
+  }
 }
 
 function makeUnderlined() {
   var content = document.getElementById("gdocs-input-content");
-  content.style.textDecoration = "underline";
+  if (content.style.textDecoration === "underline") {
+    content.style.textDecoration = "none";
+  } else {
+    content.style.textDecoration = "underline";
+  }
 }
-
 
 function changeFont() {
   var font = document.getElementById("typeFont_list").value;
   document.getElementById("gdocs-input-content").style.fontFamily = font;
 }
 
+
+function changeScale() {
+  var scale = document.getElementById("scale_list").value;
+  document.getElementById("gdocs-input-content").style.fontSize  = scale;
+}
+
+
+// const colorPicker = document.getElementById('color-picker');
+// const gdocsInputContent = document.getElementById('gdocs-input-content');
+
+// function colorWord() {
+//   const color = colorPicker.value;
+//   gdocsInputContent.style.color = color;
+// }
+
+const colorBackground = document.getElementById('background_button');
+const gdocsInputFrame = document.document.getElementById('gdocs-input-content');
+
+gdocsInputFrame.contentDocument.body.style.color = 'black'; // по умолчанию черный цвет
+
+colorBackground.addEventListener('input', () => {
+  const color = colorBackground.value;
+  gdocsInputFrame.contentDocument.body.style.color = color;
+});
+
+// const centerAlignBtn = document.getElementById('center-align-btn');
+// const gdocsInputContent = document.querySelector('.gdocs-input-content');
+
+// centerAlignBtn.addEventListener('click', () => {
+//   gdocsInputContent.style.textAlign = 'center';
+// });
+
+function changeAlignmentImage(imageName) {
+  const AlignmentImage = document.getElementById("alignment-image_change");
+  AlignmentImage.innerHTML = `<img src="images/${imageName}" class="alignment-image" height="41" width="41">`;
+}
+
+
+const alignmentButton = document.getElementById("alignment_button");
+const alignmentLeftButton = document.getElementById("alignment-left_button");
+const alignmentRightButton = document.getElementById("alignment-right_button");
+const content = document.getElementById("gdocs-input-content");
+
+let alignment = content.dataset.alignment;
+
+function changeAlignment(newAlignment) {
+  content.style.textAlign = newAlignment;
+  alignment = newAlignment;
+}
+
+alignmentButton.addEventListener("click", function() {
+  if (alignment !== "center") {
+    changeAlignment("center");
+    alignmentButton.innerHTML = `<img src="images/alignment_center.png" height="41" width="41">`;
+    alignmentLeftButton.innerHTML = `<img src="images/alignment_left.png" height="41" width="41">`;
+    alignmentRightButton.innerHTML = `<img src="images/alignment_right.png" height="41" width="41">`;
+  } else {
+    changeAlignment("left");
+    alignmentButton.innerHTML = `<img src="images/alignment.png" height="41" width="41">`;
+  }
+});
+
+alignmentLeftButton.addEventListener("click", function() {
+  if (alignment !== "left") {
+    changeAlignment("left");
+    alignmentButton.innerHTML = `<img src="images/alignment.png" height="41" width="41">`;
+    alignmentLeftButton.innerHTML = `<img src="images/alignment_left_active.png" height="41" width="41">`;
+    alignmentRightButton.innerHTML = `<img src="images/alignment_right.png" height="41" width="41">`;
+  } else {
+    changeAlignment("right");
+    alignmentButton.innerHTML = `<img src="images/alignment_left.png" height="41" width="41">`;
+  }
+});
+
+function changeAlignmentImage(imgName) {
+  var img = document.getElementById('image_change');
+  img.src = 'images/' + imgName;
+}
+
+function changeTextAlignment(alignment) {
+  var content = document.getElementById("gdocs-input-content");
+  content.contentDocument.body.style.textAlign = alignment;
+}
+
+document.addEventListener("DOMContentLoaded", function(event) {
+  var buttons = document.querySelectorAll('#al button');
+  buttons.forEach(function(button) {
+    button.addEventListener('click', function() {
+      var alignment = this.getAttribute('title');
+      changeTextAlignment(alignment);
+    });
+  });
+});
+
+function changeFontSize(change) {
+  var input = document.getElementById("mySelect_input");
+  var value = parseInt(input.value);
+  if (!isNaN(value)) {
+    var fontSize = value + change;
+    if (fontSize >= 8 && fontSize <= 50) {
+      document.getElementById("gdocs-input-content").style.fontSize = fontSize + "px";
+      input.value = fontSize;
+    }
+  }
+}
+
+function shiftLeft() {
+  var content = document.getElementById("gdocs-input-content");
+  var currentIndent = parseInt(getComputedStyle(content).textIndent, 10);
+  var newIndent = currentIndent - 20;
+  var maxIndent = content.offsetWidth - content.clientWidth;
+  if (newIndent >= maxIndent && newIndent >= 0) {
+    content.style.textIndent = newIndent + "px";
+  }
+}
+
+function shiftRight() {
+  var content = document.getElementById("gdocs-input-content");
+  var currentIndent = parseInt(getComputedStyle(content).textIndent, 10);
+  var newIndent = currentIndent + 20;
+  content.style.textIndent = newIndent + "px";
+}
+
+// function changeLineHeight(change) {
+//   var content = document.getElementById("gdocs-input-content");
+//   var currentLineHeight = parseInt(getComputedStyle(content).lineHeight, 10);
+//   var newLineHeight = currentLineHeight + change;
+//   content.style.lineHeight = newLineHeight + "px";
+// }
+
+function changeLineHeight(value) {
+  var content = document.getElementById("gdocs-input-content");
+  var currentLineHeight = parseFloat(getComputedStyle(content).lineHeight);
+  var newLineHeight = value;
+  content.style.lineHeight = newLineHeight;
+}
+
+function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId());
+  console.log('Full Name: ' + profile.getName());
+  console.log('Email: ' + profile.getEmail());
+}
+
+gapi.load('auth2', function() {
+  gapi.auth2.init({
+    client_id: 'YOUR_CLIENT_ID',
+  });
+});

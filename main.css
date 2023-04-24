@@ -4,18 +4,49 @@ body {
     margin: 0;
 }
 
+header {
+    position: absolute;
+}
+
+section {
+    margin-top: 50px;
+    flex: 1;
+    margin-left: 5px;
+}
+
+aside {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 10px;
+    gap: 5px;
+}
+
+footer {
+    margin-left:20%;
+    overflow: auto;
+}
+
+.tools-fixed {
+    position: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background: #F0ECEC;
+    width: 100%;
+    padding: 10px 10px 10px 0px;
+}
+
 nav {
     padding: 0;
-    width: 225px;
-    height: 27px;
-    margin-top: 5px;
-    margin-left: 100px;
+    /* margin-top: 5px; */
+    display: flex;
 }
 
 nav ul {
     margin: 0;
     padding: 0;
     list-style: none;
+    margin-left: auto;
 }
 
 nav ul:after {
@@ -26,15 +57,25 @@ nav ul:after {
 
 nav a {
     text-decoration: none;
-    display: block;
+    display: inline-flex;
     transition: .2s linear;
 }
 
+nav details {
+    text-decoration: none;
+    display: inline-block;
+    transition: .2s linear;
+}
 
+nav input {
+    text-decoration: none;
+    display: inline-block;
+    transition: .2s linear;
+}
 
 nav button {
     text-decoration: none;
-    display: block;
+    display: inline-block;
     transition: .2s linear;
 }
 
@@ -49,6 +90,16 @@ nav button {
 
     
 .topmenu > li > a {  
+    padding: 7px 30px;
+    margin: 0;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #000000;
+    letter-spacing: 2px;
+    border-radius: 5px;
+}
+
+.topmenu > li > input {  
     padding: 7px 30px;
     margin: 0;
     font-size: 12px;
@@ -76,13 +127,14 @@ nav button {
     
 .topmenu > li > a.active, 
 
+.topmenu > li > input.active, 
+
 .topmenu > li > button.active, 
 
 .topmenu .fa,
 
 .submenu .fa {
     margin-left: 5px;
-    /* color: inherit; */
     }
 
 .submenu {
@@ -117,11 +169,10 @@ nav button {
 }
 
 .submenu .submenu {
-    position: absolute;
     left:100%;
     top: -1px;
     transition: .3s linear;
-    }
+}
 
 .top > li {
     float: left;
@@ -141,6 +192,7 @@ nav button {
     color: #000000;
     letter-spacing: 2px;
     border-radius: 5px;
+    right: 290px;
 }
         
 .top .active:hover {
@@ -154,61 +206,61 @@ nav button {
 #pen_image {
     margin-top: 7px;
     margin-left: 3px;
-    position: absolute;
+    position: fixed;
 }
 
 #save_image {
     margin-top: 7px;
     margin-left: 3px;
-    position: absolute;
+    position: fixed;
 }
 
 #rename_image {
     margin-top: 7px;
     margin-left: 3px;
-    position: absolute;
+    position: fixed;
 }
 
 #dowland_image {
     margin-top: 7px;
     margin-left: 3px;
-    position: absolute;
+    position: fixed;
 }
 
 #remove_image {
     margin-top: 7px;
     margin-left: 3px;
-    position: absolute;
+    position: fixed;
 }
 
 #image_image {
     margin-top: 7px;
     margin-left: 3px;
-    position: absolute;
+    position: fixed;
 }
 
 #drawing_image {
     margin-top: 7px;
     margin-left: 3px;
-    position: absolute;
+    position: fixed;
 }
 
 #table_image {
     margin-top: 7px;
     margin-left: 3px;
-    position: absolute;
+    position: fixed;
 }
 
 #character_image {
     margin-top: 7px;
     margin-left: 3px;
-    position: absolute;
+    position: fixed;
 }
 
 #emoji_image {
     margin-top: 7px;
     margin-left: 3px;
-    position: absolute;
+    position: fixed;
 }
 
 
@@ -230,16 +282,14 @@ nav li:hover > .submenu {
     border-color: azure;
 } 
 
- #points {
+#points {
     width: 30px;
     height: 27px;
-    margin-bottom: 100px;
-    position: absolute;
-    right: 50px;
     text-align: center;
     line-height: 27px;
     font-weight: bold;
     border: none;
+    background: none;
 }
 
 
@@ -248,7 +298,6 @@ nav li:hover > .submenu {
     border-radius: 3px;
     padding: 10px;
     font-family: Arial, sans-serif;
-    position: absolute;
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;
@@ -256,7 +305,7 @@ nav li:hover > .submenu {
 }
   
 .gdocs-input-toolbar {
-    display: flex;
+    display: inline-block;
     justify-content: flex-start;
     margin-bottom: 5px;
 }
@@ -269,9 +318,9 @@ nav li:hover > .submenu {
     border-radius: 3px;
     cursor: pointer;
 }
-  
+ 
+
 .gdocs-input-content {
-    margin-top: 10px;
     width: 794px;
     height: 1123px;
     border: 5px;
@@ -280,28 +329,32 @@ nav li:hover > .submenu {
     font-size: 16px;
     line-height: 1.5;
     background-color: #ffffff;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    margin-top: 100px;
-    max-height: calc(100vh - 200px);
-    /* overflow: hidden; */
+    margin-top: 250px;
+    /* max-height: calc(100vh - 200px); */
     overflow-y: auto;
-    word-break:break-all;
+    word-break: break-all;
+    text-indent: 20px;
+
 }
     
 .owner-icon {
-    background-image: url("image1.jpg");
     width: 50px;
     height: 50px;
     transition: background-image 0.5s ease-in-out;
     border-radius: 100px;
     border: 3px solid rgb(255, 0, 0); 
     box-shadow: 0 0 7px #666; 
-    position: absolute;
-    right: 100px;
-    top: 20px;
+    cursor: pointer;
+}
+
+.g-signin2 {
+    width: 50px;
+    height: 50px;
+    transition: background-image 0.5s ease-in-out;
+    border-radius: 100px;
+    border: 3px solid rgb(255, 0, 0); 
+    box-shadow: 0 0 7px #666; 
+    cursor: pointer;
 }
 
 
@@ -309,58 +362,44 @@ nav li:hover > .submenu {
     border: #000000;
     width: 40px;
     height: 50px;
-    position: absolute;
-    left: 50px;
-    top: 20px;
+    margin-left: 50px;
+    margin-top: 20px;
 }
 
 .tools-bar {
     background: #D9D9D9; 
-    border-radius: 10px;
-    width: 1300px;
-    height: 50px;
-    position: absolute;
-    margin: 0;
-    margin-top: 10px;
-    padding: 0;
-    display: inline-block;
-    clear: both;
-    left: 100px
+    border-radius: 15px;
+    /* width: 100%; */
+    height: auto;
+    display: inline-flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 6px 16px 8px 16px;
+    padding: 0 8px;
 }
 
 .arrow-left_image {
-    margin-top: 5px;
     height: 41px;
     width: 41px;
-    position: absolute;
-    left: 10px;
 }
 
 .arrow-right_image {
-    margin-top: 5px;
     height: 41px;
     width: 41px;
     transform: rotate(180deg);
-    left: 60px;
-    position: absolute;
-
 }
 
 .save_image {
-    margin-top: 5px;
     height: 41px;
     width: 41px;
-    position: absolute;
-    left: 110px;
 }
 
 #scale_list {
     background-color: #D9D9D9;
-    margin-top: 5px;
     height: 41px;
     width: 60px;
-    position: absolute;
-    left: 170px;
     border-radius: 10px;
     text-align: center;
     border: none;
@@ -370,123 +409,42 @@ nav li:hover > .submenu {
 
 #typeFont_list {
     background-color: #D9D9D9;
-    margin-top: 5px;
     height: 41px;
-    width: 100px;
-    position: absolute;
-    left: 250px;
+    width: 110px;
     border-radius: 10px;
 }
 
 
 #mySelect_input {
-    margin-top: 2px;
     height: 41px;
     width: 60px;
-    position: absolute;
-    left: 400px;
     border-radius: 10px;
     text-align: center;
 }
 
 .minus-font_image {
-    margin-top: 10px;
     height: 30px;
     width: 30px;
-    position: absolute;
-    left: 360px;
 }
 
 .plus-font_image {
-    margin-top: 10px;
     height: 30px;
     width: 30px;
-    position: absolute;
-    left: 475px;
-}
-
-.line-one_image {
-    left: 490px;
-    position: absolute;
-}
-
-.bold_image {
-    left: 530px;
-    margin-top: 12px;
-    position: absolute;
-}
-
-.italic_image {
-    left: 560px;
-    margin-top: 12px;
-    position: absolute;
-}
-
-.underlined_image {
-    left: 600px;
-    margin-top: 12px;
-    position: absolute;
 }
 
 .color-word_image {
-    left: 635px;
-    margin-top: 5px;
-    position: absolute;
-}
-
-.background_image {
-    left: 680px;
-    margin-top: 5px;
-    position: absolute;
-}
-
-.line-two_image {
-    left: 720px;
-    position: absolute;
-}
-
-.alignment_image {
-    left: 755px;
-    margin-top: 5px;
-    position: absolute;
-}
-
-.markers_image {
-    left: 810px;
-    margin-top: 5px;
-    position: absolute;
-}
-
-.inter_image {
-    left: 860px;
-    margin-top: 5px;
-    position: absolute;
-}
-
-.to-do-list_image {
-    left: 910px;
-    margin-top: 5px;
-    position: absolute;
-}
-
-.shift-left_image {
-    left: 960px;
-    margin-top: 5px;
-    position: absolute;
+    width: 41px;
+    border: none;
+    background-color: none;
 }
 
 .shift-right_image {
-    left: 1000px;
-    margin-top: 1px;
-    position: absolute;
     transform: rotate(180deg);
+    margin-right: 40px;
 }
 
 
 .permission_image {
-    left: 1230px;
-    margin-top: 5px;
-    position: absolute;
     list-style: none;
     z-index: 5;
     transform-origin: 0% 0%;
@@ -496,11 +454,40 @@ nav li:hover > .submenu {
 
 details ol {
     float: right;
-    margin-right: 22px;
     list-style: none;
-    margin-top: 50px;
     border: none;
     background-color: none;
+    position: absolute;
+    padding: 0;
+}
+
+#al{
+    list-style: none;
+    border: none;
+    background-color: none;
+    display: flex;
+}
+
+#inter{
+    list-style: none;
+    border: none;
+    background-color: none;
+    display: flex;
+}
+
+#inter-one_button {
+    width: 41px;
+    height: 41px;
+}
+
+#inter-one-and-a-half_button {
+    width: 41px;
+    height: 41px;
+}
+
+#inter-two_button {
+    width: 41px;
+    height: 41px;
 }
 
 summary {
@@ -528,13 +515,13 @@ summary {
 }
   
 .close_button {
-    position: absolute;
-    right: 0px;
-    top: 0px;
+    right: 15px;
+    top: 15px;
     background: none;
     border: none;
     cursor: pointer;
     color: #000000;
+    position: fixed;
 }
   
 .popup-content {
@@ -628,9 +615,9 @@ summary {
 }
   
 .close-drawing_button {
-    position: absolute;
-    right: 0px;
-    top: 0px;
+    position: fixed;
+    right: 15px;
+    top: 15px;
     background: none;
     border: none;
     cursor: pointer;
@@ -670,7 +657,6 @@ summary {
 }
   
 .close-char_button {
-    position: absolute;
     right: 0px;
     top: 0px;
     background: none;
@@ -711,18 +697,8 @@ summary {
     text-align: center;
 }
   
-.close_button {
-    position: absolute;
-    right: 0px;
-    top: 0px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #000000;
-}
   
 .image_button {
-    /* position: relative; */
     border: none;
     background: none;
 }
@@ -773,17 +749,7 @@ summary {
     position: relative;
     text-align: center;
 }
-  
-.close_button {
-    position: absolute;
-    right: 0px;
-    top: 0px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #000000;
-}
-  
+    
 .table_button {
     border: none;
     background: none;
@@ -791,16 +757,12 @@ summary {
 
 table {
     border-collapse: collapse;
-    /* table-layout: fixed; */
-    width: 500px;
+    width: 750px;
     height: auto;
-    /* height: 300px; */
     table-layout: fixed;
     resize: both;
     overflow: auto;
     margin: 10px;
-    /* max-width: 100%;
-    max-height: 100%; */
 }
 
 td, th {
@@ -812,4 +774,24 @@ td, th {
 
 .gdocs-input-content img {
     margin: 10px;
+}
+
+button.color-word_image {
+    background-color: #ffffff;
+    border: none;
+}
+
+
+#saveCanvas {
+    border: none;
+    background: none;
+}
+
+ul#myDropdown.submenu {
+    right: 100px;
+    margin-right: 175px;
+}
+
+.zero-line {
+    margin-top: 20px;
 }
