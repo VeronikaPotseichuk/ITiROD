@@ -3,27 +3,24 @@
   <head>
     <meta charset="UTF-8">
     <title>Google Docs</title>
-    <link rel="stylesheet" href="main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet"  media="screen and (max-width: 1000px)" href="phone.css">
+    <link rel="stylesheet" media="screen and (min-width: 1000px)" href="desktop.css" >
     <link rel="stylesheet" href="main_hover.css">
     <script src="main.js"></script>    
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <style>
       canvas {
         border: 1px solid black;
       }
     </style>
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=200%, user-scalable=no"> -->
     </head>
   <body>
     <div class="tools-fixed">
     <nav>
-        <nav>
-            <div class="image-file">
-                <img src="images/icon.png" id="icon_image" height="50px">
-            </div>
-        </nav>
+        <div class="image-file">
+            <img src="images/icon.png" id="icon_image" height="50px">
+        </div>
         <header>
             <form method="post" enctype="multipart/form-data">
                 <input type="text" class="name-file_input" name="name"
@@ -36,16 +33,16 @@
           <li><a class="active">File</a>
                 <ul class="submenu">
                 <li>                    
-                    <img src="images/pen.png" id="pen_image" height="15" width="15">
+                    <img src="images/pen.png" id="pen_image" height="19" width="19">
                     <a href="">Create</a></li>
                 <li>
-                    <img src="images/save.png" id="save_image" height="15" width="15">
+                    <img src="images/save.png" id="save_image" height="19" width="19">
                     <a href="">Save</a></li>
                 <li>
-                    <img src="images/rename.png" id="rename_image" height="15" width="15">
+                    <img src="images/rename.png" id="rename_image" height="19" width="19">
                     <a href="">Rename</a></li>
                 <li>
-                    <img src="images/dowland.png" id="dowland_image" height="15" width="15">
+                    <img src="images/dowland.png" id="dowland_image" height="19" width="19">
                     <a href="">Dowland<span class="fa fa-angle-down"></span></a>
                 <ul class="submenu">
               <li><a href="">PDF</a></li>
@@ -54,55 +51,48 @@
               </ul>
               </li>
               <li>
-                <img src="images/remove.png" id="remove_image" height="15" width="15">
+                <img src="images/remove.png" id="remove_image" height="19" width="19">
                 <a href="">Delete</a></li>
             </ul>
           </li>
           <li><a class="active">Insert</a>
             <ul class="submenu">
                 <li>
-                    <img src="images/image.png" id="image_image" height="15" width="15">
+                    <img src="images/image.png" id="image_image" height="19" width="19">
                     <button class="image_button" id="image" onclick="openImage()">Image</button>
                 <li>
-                    <img src="images/paint.png" id="drawing_image" height="15" width="15">
+                    <img src="images/paint.png" id="drawing_image" height="19" width="19">
                     <button class="drawing_button" id="drawing" onclick="openDrawing()">Drawing</button>
                 <li>
-                    <img src="images/table.png" id="table_image" height="15" width="15">
+                    <img src="images/table.png" id="table_image" height="19" width="19">
                     <button class="table_button" id="table" onclick="openTable()">Table</button>
               </li>
               <li>
-                <img src="images/character.png" id="character_image" height="15" width="15">
+                <img src="images/character.png" id="character_image" height="19" width="19">
                 <button class="character_button" id="character" onclick="openCharacter()">Special characters</button>
               <li>
-                <img src="images/emoji.png" id="emoji_image" height="15" width="15">
+                <img src="images/emoji.png" id="emoji_image" height="19" width="19">
                 <a href="">Emoji</a></li>
             </ul>
           </li>
         </ul>
         </section>
 
-        <aside>
           <div class="g-signin2" data-onsuccess="onSignIn"></div>
-
-          <!-- <button class="owner-icon" data-onsuccess="onSignIn"></button> -->
-        <!-- <div class="owner-icon"> -->
-                <!-- <button class="g-signin2" data-onsuccess="onSignIn"></button> -->
-            <!-- </div> -->
             <div>
                 <button class="active-mod" id="points" onclick="openPopup()">...</button>
             </div>
-        </aside>
     </nav>
 
+    <div id="edit-panel">
     <nav class="tools-bar">
-        <a href="" class="arrow-left_image" title="Arrow left">
+        <a type="button" class="arrow-left_image" title="Arrow left" id="undo-btn">
             <img src="images/arrow.png" width="41" height="41">
         </a>
 
-        <a href="" class="arrow-right_image" title="Arrow right">
+        <a type="button" class="arrow-right_image" title="Arrow right" id="redo-btn">
             <img src="images/arrow.png" width="41" height="41">
         </a>
-
         <a href="" class="save_image" title="Save file">
             <img src="images/save.png" width="41" height="41">
         </a>
@@ -120,7 +110,7 @@
         </select>        
         
         <a button class="minus-font_image" title="Minus size font" onclick="changeFontSize(-2)">
-            <img src="images/mimus.png" width="30" height="30">
+            <img src="images/mimus.png" id="minus_button" width="30" height="30">
         </a>
     
         <input type="text" id="mySelect_input" list="myList" maxlength="2" onkeydown="if(event.keyCode===38 || event.keyCode===40) {event.preventDefault();}" oninput="this.value = this.value.replace(/[^0-9]/g, '');"  max="50"placeholder="14">
@@ -133,7 +123,7 @@
             </datalist>
           
         <a button class="plus-font_image" title="Plus size font" onclick="changeFontSize(2)">            
-            <img src="images/plus.png" width="30" height="30">
+            <img src="images/plus.png" id="plus_button" width="30" height="30">
         </a>
 
         <a class="line-one_image">            
@@ -141,7 +131,7 @@
         </a>
 
         <a button class="bold_image" title="Bold" onclick="makeBold()">
-            <img src="images/b.svg" height="25">
+            <img src="images/b.svg" height="25" width="25">
         </a>
 
         <a button class="italic_image" title="Italic" onclick="makeItalic()">
@@ -153,9 +143,6 @@
         </a>
 
         <input type="color" id="color-picker" class="color-word_image" title="Word color" onchange="colorWord()">
-        <!-- <a button type="color" id="color-picker" class="color-word_image" title="Word color" onchange="colorWord()">
-            <img src="images/a.png" height="40">
-        </a> -->
 
         <a button class="background_image" title="background" id="background_button">
             <img src="images/background.png" height="41" width="41">
@@ -164,10 +151,6 @@
         <a class="line-two_image">            
             <img src="images/line.png" height="50">
         </a>
-
-        <!-- <a button class="alignment_image" id="alignment-image_change" title="Alignment">            
-            <img src="images/alignment.png" id = "image_change" height="41" width="41">
-        </a> -->
 
         <details>
             <summary id="alignment-image_change">
@@ -252,13 +235,26 @@
         </details>
     </nav>
     </div>
+    <button class="edit-tools-bar" onclick="togglePanel()">
+        <img src="images/tool-bar.png" id="tool-bar" height="100" width="100">
+    </button>
+    <!-- <script>
+        function togglePanel() {
+          var panel = document.getElementById('edit-panel');
+          if (panel.style.display === 'none') {
+            panel.style.display = 'block';
+          } else {
+            panel.style.display = 'none';
+          }
+        }
+      </script> -->
+    </div>
     <footer>
         <div class="wrapper">
             <div class="gdocs-input-content" id="gdocs-input-content" action="https://google-docs-itirod" contenteditable>
             </div>
         </div>
     </footer>
-    <div class="zero-line"></div>
 
 
 
@@ -286,15 +282,15 @@
                     <li><a href="" class="active">...</a>
                         <ul id="myDropdown" class="submenu">
                         <li>
-                            <img src="images/edit.png" id="edit-choice_image" height="15" width="15">
+                            <img src="images/edit.png" id="edit-choice_image" height="30" width="30">
                             <lable><input type="checkbox" value="Option1"><span class="checkbox-text"> Edit</span></lable>
                         </li>                    
                         <li>
-                            <img src="images/comment.png" id="comment-choice_image" height="15" width="15">
+                            <img src="images/comment.png" id="comment-choice_image" height="30" width="30">
                             <lable><input type="checkbox" value="Option2"><span class="checkbox-text"> Comment</span></lable>
                         </li>                    
                         <li>
-                            <img src="images/read.png" id="read-choice_image" height="15" width="15">
+                            <img src="images/read.png" id="read-choice_image" height="30" width="30">
                             <lable><input type="checkbox" value="Option3"><span class="checkbox-text"> Read</span></lable>
                         </li>                    
                     </ul>
@@ -368,7 +364,6 @@
           </button>
         </div>
         <button class="add-file_input" onclick="addImage()">Add images</button>
-
       </div>
 
 
