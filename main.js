@@ -248,12 +248,6 @@ window.addEventListener('click', function(e) {
   }
 });
 
-window.addEventListener('click', function(e) {
-  const details = document.getElementsByTagName('details')[0];
-  if (!details.contains(e.target)) {
-      details.removeAttribute('open');
-  }
-});
 
 function makeBold() {
   var content = document.getElementById("gdocs-input-content");
@@ -303,7 +297,7 @@ function changeScale() {
 // }
 
 const colorBackground = document.getElementById('background_button');
-const gdocsInputFrame = document.document.getElementById('gdocs-input-content');
+const gdocsInputFrame = document.getElementById('gdocs-input-content');
 
 gdocsInputFrame.contentDocument.body.style.color = 'black'; // по умолчанию черный цвет
 
@@ -424,15 +418,73 @@ function changeLineHeight(value) {
   content.style.lineHeight = newLineHeight;
 }
 
-function onSignIn(googleUser) {
-  var profile = googleUser.getBasicProfile();
-  console.log('ID: ' + profile.getId());
-  console.log('Full Name: ' + profile.getName());
-  console.log('Email: ' + profile.getEmail());
+// function onSignIn(googleUser) {
+//   var profile = googleUser.getBasicProfile();
+//   console.log('ID: ' + profile.getId());
+//   console.log('Full Name: ' + profile.getName());
+//   console.log('Email: ' + profile.getEmail());
+// }
+
+// gapi.load('auth2', function() {
+//   gapi.auth2.init({
+//     client_id: 'YOUR_CLIENT_ID',
+//   });
+// });
+
+
+// function undo() {
+//   var element = document.getElementById('gdocs-input-content');
+//   element.focus();
+//   document.execCommand('undo', false, '');
+// }
+
+const contentDiv = document.getElementById("gdocs-input-content");
+const undoBtn = document.getElementById("undo-btn");
+const redoBtn = document.getElementById("redo-btn");
+const undoStack = [];
+const redoStack = [];
+
+// добавляет текущее состояние в стек undo
+function addToUndoStack() {
+  undoStack.push(contentDiv.innerHTML);
 }
 
-gapi.load('auth2', function() {
-  gapi.auth2.init({
-    client_id: 'YOUR_CLIENT_ID',
-  });
+// возвращает последнее состояние из стека undo
+function undo() {
+  if (undoStack.length > 1) {
+    redoStack.push(undoStack.pop());
+    contentDiv.innerHTML = undoStack[undoStack.length - 1];
+  }
+}
+
+// возвращает последнее состояние из стека redo
+function redo() {
+  if (redoStack.length > 0) {
+    undoStack.push(redoStack.pop());
+    contentDiv.innerHTML = undoStack[undoStack.length - 1];
+  }
+}
+
+// добавляем обработчики событий на кнопки undo и redo
+undoBtn.addEventListener("click", () => {
+  addToUndoStack();
+  undo();
 });
+
+redoBtn.addEventListener("click", redo);
+
+// добавляем обработчик события на изменение содержимого элемента content
+contentDiv.addEventListener("input", () => {
+  addToUndoStack();
+  redoStack.length = 0;
+  console.log(1);
+});
+
+function togglePanel() {
+  var panel = document.getElementById('edit-panel');
+  if (panel.style.display === 'none') {
+    panel.style.display = 'block';
+  } else {
+    panel.style.display = 'none';
+  }
+}
